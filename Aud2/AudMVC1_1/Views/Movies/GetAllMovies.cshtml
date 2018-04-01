@@ -1,0 +1,28 @@
+﻿@model List<AudMVC2_1.Models.Movie>
+@{
+    ViewBag.Title = "Random";
+}
+
+<h3>Movies:</h3>
+<ul>
+    @{
+        int i = 0;
+        foreach (var c in Model)
+        {
+            <li>
+                <h4>
+                    <img src="@c.ImgURL" style="max-width:100px" />
+                    @Html.ActionLink(c.Name, "ShowMovie", new { id = i })
+
+                    @*<a href="ShowMovie/@i">@c.Name</a>*@
+                    |
+                    @Html.ActionLink("Edit", "EditMovie", new {id = i})
+                    @*<a href="EditMovie/@i">Edit</a>*@
+                </h4>
+                </li>
+            i++;
+        }
+    }
+</ul>
+
+
