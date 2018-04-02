@@ -66,6 +66,11 @@ namespace AudMVC2_1.Controllers
             model.id = id;
             return View(model);
         }
+        public ActionResult DeleteMovie(int id)
+        {
+            moviesList.RemoveAt(id);
+            return View("GetAllMovies", moviesList);
+        }
         [HttpPost]
         public ActionResult EditMovie(Movie model)
         {
@@ -81,6 +86,7 @@ namespace AudMVC2_1.Controllers
             forUpdate.Rating = model.Rating;
             return View("GetAllMovies", moviesList);
         }
+
         public ActionResult ShowClient(int id)
         {
             Client model = lista.ElementAt(id);

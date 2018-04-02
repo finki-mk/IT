@@ -12,12 +12,9 @@
             <li>
                 <h4>
                     <img src="@c.ImgURL" style="max-width:100px" />
-                    @Html.ActionLink(c.Name, "ShowMovie", new { id = i })
-
-                    @*<a href="ShowMovie/@i">@c.Name</a>*@
-                    |
-                    @Html.ActionLink("Edit", "EditMovie", new {id = i})
-                    @*<a href="EditMovie/@i">Edit</a>*@
+                    @Html.ActionLink(c.Name, "ShowMovie", new { id = i }) |
+                    @Html.ActionLink("Edit", "EditMovie", new {id = i}) |
+                    @Html.ActionLink("Delete", "DeleteMovie", new { id = i })
                 </h4>
                 </li>
             i++;
