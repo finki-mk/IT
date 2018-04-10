@@ -1,0 +1,22 @@
+﻿@model AudMVC1_1.Models.Movie
+@{
+    ViewBag.Title = "NewMovie";
+}
+
+<h2>Add a new movie</h2>
+
+@using (Html.BeginForm("NewMovie", "Movies")) {
+
+    foreach (var item in Model.GetType().GetProperties())
+    {
+        <li>
+        <label>@item.Name</label>
+         <input type="text" name="@item.Name" />
+        
+    </li>
+    }
+
+<button type="submit" class="btn btn-default">Save</button>
+
+}
+

@@ -1,0 +1,21 @@
+﻿@model AudMVC3_1.Models.Client
+@{
+    ViewBag.Title = "ShowClient";
+}
+
+@if (Model.Age < 18)
+{
+    <h1><span style="color:red">Потребен е надзор од родител или старател</span></h1>
+
+}
+else
+{
+    <h2>@Model.Name</h2>
+
+    <h3>Адреса: @Model.Address</h3>
+    <h3>Телефон: @Model.Telephone</h3>
+    <h3>Години: @Model.Age</h3>
+}
+
+
+

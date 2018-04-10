@@ -1,0 +1,29 @@
+﻿@model AudMVC1_1.Models.Movie
+@{
+    ViewBag.Title = "NewMovie";
+}
+
+<h2>Edit the movie - @Model.Name</h2>
+
+@using (Html.BeginForm("EditMovie1", "Movies")) {
+
+    <div class="form-group">
+                @Html.LabelFor(m => m.Name)
+                @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Rating)
+        @Html.TextBoxFor(m => m.Rating, new { type="number", @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.DownloadURL)
+        @Html.TextBoxFor(m => m.DownloadURL, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.ImageURL)
+        @Html.TextBoxFor(m => m.ImageURL, new { @class = "form-control" })
+    </div>
+    <button type="submit" class="btn btn-default">Save</button>
+
+}
+

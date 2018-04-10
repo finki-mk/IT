@@ -1,0 +1,25 @@
+﻿@model AudMVC1_1.Models.MovieRentals
+@{
+    ViewBag.Title = "Random";
+}
+
+<h2>Film: @Model.movie.Name</h2>
+<h3>Rating: @Model.movie.Rating</h3>
+Download from <a href="@Model.movie.DownloadURL">here</a>
+<h3>Clients:</h3>
+<ul>
+    @{
+        int i = 0;
+        foreach (var c in Model.customers)
+        {
+            <li>
+                @Html.ActionLink(c.Name,"ShowClient",new { id=i})
+            </li>
+            i++;
+        }
+
+
+    }
+</ul>
+
+

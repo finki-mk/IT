@@ -1,0 +1,22 @@
+﻿@model AudMVC3_1.Models.ClientMovie
+@{
+    ViewBag.Title = "InsertClientMovie";
+}
+
+<h2>Insert new client to @Model.movie.Name</h2>
+
+@using (Html.BeginForm("InsertClientMovie", "Clients"))
+{
+<div class="form-group">
+    @Html.DropDownListFor(m => m.selectedClientId,
+                             new SelectList(
+                                 Model.clients,
+                                 "Id",
+                                 "Name"), new { @class = "form-control" })
+@Html.HiddenFor(m=>m.movieId)
+</div>
+<div class="form-group">
+
+    <button type="submit">Add client to movie</button>
+</div>
+}
