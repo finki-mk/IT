@@ -1,0 +1,64 @@
+﻿@model List<AudMVC4_1.Models.Movie>
+@{
+    ViewBag.Title = "Random";
+}
+
+<h3>Movies:</h3>
+<table id="moviesTable">
+    <thead>
+        <tr>
+            <th>Image</th>
+            <th>Movie</th>
+            <th>Rating</th>
+            <th>Download</th>
+            <th>Links</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+        foreach (var c in Model)
+        {
+        <tr>
+            <td>
+                <img src="@c.ImgURL" style="max-width:100px" />
+            </td>
+            <td>
+                @Html.ActionLink(c.Name, "ShowMovie", new { id = c.id }) 
+
+            </td>
+            <td>@c.Rating</td>
+
+            <td><a href="@c.DownloadURL">Download</a>
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditMovie", new { id = c.id }) |
+                <button data-movie-id="@c.id" class="btn-link js-delete">Delete</button>
+            </td>
+        </tr>
+    }
+        }
+    </tbody>
+</table>
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            var table = $("#moviesTable").DataTable();
+            $("#moviesTable .js-delete").on("click", function () {
+                var button = $(this);
+                bootbox.confirm("Do you want to delete this movie?", function (result) {
+                    if (result) {
+                        $.ajax({
+                            url: "/api/MoviesApi/" + button.attr("data-movie-id"),
+                            method: "DELETE",
+                            success: function () {
+                                table.row(button.parents("tr")).remove().draw();
+                            }
+                        });
+                    }
+                });
+            });
+        });
+
+    </script>
+}
+
