@@ -164,6 +164,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\ClientsApiController.cs" />
     <Compile Include="Controllers\ClientsController.cs" />
     <Compile Include="Controllers\ClientsNewController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -190,6 +191,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Client.cs" />
+    <Compile Include="Models\ClientDto.cs" />
     <Compile Include="Models\ClientMovie.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Models\MovieRentals.cs" />
@@ -485,6 +487,7 @@
     <Content Include="Views\ClientsNew\Details.cshtml" />
     <Content Include="Views\ClientsNew\Edit.cshtml" />
     <Content Include="Views\ClientsNew\Index.cshtml" />
+    <Content Include="Views\ClientsNew\IndexAjax.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

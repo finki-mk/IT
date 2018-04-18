@@ -19,6 +19,10 @@ namespace AudMVC1_1.Controllers
         {
             return View(db.Clients.ToList());
         }
+        public ActionResult IndexAjax()
+        {
+            return View();
+        }
 
         // GET: ClientsNew/Details/5
         public ActionResult Details(int? id)

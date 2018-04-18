@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table id="clientsTable" class="table">
+    
+    
+</table>
+
+@section scripts{
+    <script>
+        $("#clientsTable").DataTable({
+            ajax: {
+                url: "/api/ClientsApi",
+                dataSrc:""
+            },
+            columns: [{
+                data: "Name",
+                render: function (data,type,client) {
+                    return "<a href='/clientsApi/edit" + client.id + "'>" + client.Name + "</a>";
+                }
+            }, {
+                    data: "Address"
+                }
+            ]
+        });
+    </script>
+    }
