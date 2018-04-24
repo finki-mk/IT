@@ -1,0 +1,39 @@
+﻿@model IEnumerable<AudMVC3_1.Models.Client>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table id="clientTable" class="table">
+  
+</table>
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $("#clientTable").DataTable({
+                ajax: {
+                    url: "/api/ClientsApi",
+                    dataSrc: ""
+                },
+                columns: [{
+                    data: "Name",
+                    render: function (data, type, client) {
+                        
+                        return "<a href='/api/ClientsApi/" + client.Id + "'>" + client.Name + "</a>";
+                    }
+                }, {
+                    data: "Address"
+                }
+                ]
+            });
+
+        });
+
+    </script>
+    }
