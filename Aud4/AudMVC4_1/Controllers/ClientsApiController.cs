@@ -20,6 +20,7 @@ namespace AudMVC1_1.Controllers
         public IEnumerable<ClientDto> GetClients()
         {
             var model = db.Clients.Select( z => new ClientDto {
+                Id = z.Id,
                 Name = z.Name,
                 Address = z.Address,
                 MovieCard = z.MovieCard,
