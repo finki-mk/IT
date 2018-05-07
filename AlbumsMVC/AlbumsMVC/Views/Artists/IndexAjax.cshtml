@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "IndexAjax";
+}
+
+<h2>Index Ajax</h2>
+
+<table id="table1">
+</table>
+
+@section scripts{
+    <script>
+        $(document).on("ready", function () {
+            $("#table1").DataTable({
+                ajax: {
+                    url:"/api/ArtistsApi",
+                    dataSrc: ""
+                },
+                columns: [
+                    {
+                        data: "ArtistId"
+                    },
+                    {
+                        data: "Name",
+                        render: function (t, t, artist)
+                        {
+                            return "<a href='/Artists/Edit/" + artist.ArtistId + "'/>" + artist.Name + "</a>";
+                        }
+                    }
+                ]
+            });
+        });
+    </script>
+    }
+
